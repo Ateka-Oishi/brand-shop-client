@@ -5,6 +5,8 @@ import app from '../../Firebase/firebase.config';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useTitle from '../../Hook/Hook';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const Login = () => {
@@ -30,12 +32,12 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 setUser(loggedUser);
-                toast("Login Successful!")
+                toast.success("Login Successful!")
                 navigate(from, { replace: true });
             })
             .catch(error => {
                 console.log(error.message);
-                toast("Login Failed")
+                toast.error("Login Failed")
             })
     }
     const handleGoogleSignIn = () => {
@@ -46,12 +48,12 @@ const Login = () => {
                 setUser(loggedInUser)
                 // console.log(loggedInUser);
                 localStorage.setItem('user', loggedInUser);
-                toast("Login Successful!");
+                toast.success("Login Successful!");
                 navigate(from, { replace: true });
             })
             .catch(error => {
                 console.log('error ', error.message)
-                toast("Login Failed")
+                toast.error("Login Failed")
             })
     }
 
@@ -103,7 +105,7 @@ const Login = () => {
             </div>
             <ToastContainer
                 position="top-right"
-                autoClose={5000}
+                autoClose={1000}
                 hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick

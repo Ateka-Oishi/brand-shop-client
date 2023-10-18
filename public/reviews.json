@@ -1,0 +1,26 @@
+[
+    {
+        "_id": 1,
+        "name": "Samiha Akter",
+        "details": "We were thrilled with the car selection! Our new compact car brought us immense happiness. The website was easy to use, and the delivery was exceptionally quick. Highly recommended!",
+        "rating": 4
+    },
+    {
+        "_id": 2,
+        "name": "Ateka Sultana",
+        "details": "I had a fantastic shopping experience with this car brand. The vehicle offers excellent quality at a reasonable price. The checkout process was effortless, and the customer service was exceptional. I'll definitely return for more!",
+        "rating": 4
+    },
+    {
+        "_id": 3,
+        "name": "Shopon Abdullah",
+        "details": "I recently bought an amazing car. It's a perfect blend of power and style. The purchase process was smooth and hassle-free. I'm thoroughly enjoying every moment behind the wheel. A fantastic choice that I'm proud of.",
+        "rating": 5
+    },
+    {
+        "_id": 4,
+        "name": "Khadiza Zarin",
+        "details": "Great car buying experience! Diverse selection, knowledgeable staff, and a smooth process. Now, I'm thrilled with my new car! Highly recommend!",
+        "rating": 3
+    }
+]

@@ -3,6 +3,7 @@ import useTitle from "../../Hook/Hook";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
     const { registerUser, updateUserProfile } = useContext(AuthContext);
@@ -11,7 +12,7 @@ const Register = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
 
-  const handleRegistration = event => {
+  const handleRegistration = async(event) => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
@@ -19,22 +20,35 @@ const Register = () => {
     const photoURL = form.photoURL.value;
     const password = form.password.value;
     console.log(name, email, password, photoURL);
-
-    registerUser(email, password)
-      .then(result => {
-        const createdUser = result.user;
-        updateUserProfile(result.name, result.photoURL)
-        console.log(createdUser);
-        toast('You are successfully registered');
+    try{
+        const result = await registerUser(email, password);
+        const createUser = result.user;
+        console.log(createUser);
+        //update user profile
+        await updateUserProfile(name, photoURL);
+        toast.success('You are successfully registered');
         navigate(from, { replace: true });
-      })
-      .catch(error => {
+    }
+    catch (error) {
         console.log(error.message);
-        toast(error.message);
-      })
+        toast.error('Registration failed')
+    }
+    
+    // registerUser(email, password)
+    //   .then(result => {
+    //     const createdUser = result.user;
+    //     updateUserProfile(result.name, result.photoURL)
+    //     console.log(createdUser);
+    //     toast('You are successfully registered');
+    //     navigate(from, { replace: true });
+    //   })
+    //   .catch(error => {
+    //     console.log(error.message);
+    //     toast(error.message);
+    //   })
     // console.log(registerUser);
-  }
-
+  };
+ 
 
   return (
     <div className="hero min-h-screen bg-gradient-to-b to-slate-800 from-cyan-400">
@@ -84,7 +98,7 @@ const Register = () => {
       </div>
       <ToastContainer
                     position="top-right"
-                    autoClose={5000}
+                    autoClose={1000}
                     hideProgressBar={false}
                     newestOnTop={false}
                     closeOnClick

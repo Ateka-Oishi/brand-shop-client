@@ -12,7 +12,7 @@ const Banner = () => {
   
     return (
       <div autoPlay='true' className="carousel w-full relative">
-        <div id="slide1" className="carousel-item h-[30%]  relative w-full">
+        <div id="slide1" className="carousel-item h-[30%] relative w-full">
           <img src='https://i.ibb.co/MCLGfmQ/car1.jpg' className="w-full h-[500px] " />
           <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0 ">
             <a href="#slide4" className="btn btn-circle btn-warning">❮</a>
@@ -20,7 +20,7 @@ const Banner = () => {
           </div>
           {description}
         </div>
-        <div id="slide2" className="carousel-item  h-[30%]  relative w-full">
+        <div id="slide2" className="carousel-item  h-[30%] relative w-full">
           <img src='https://i.ibb.co/TMDqBYd/car2.jpg' className="w-full h-[500px]" />
           <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0">
             <a href="#slide1" className="btn btn-circle  btn-warning ms-2">❮</a>
@@ -28,7 +28,7 @@ const Banner = () => {
           </div>
           {description}
         </div>
-        <div id="slide3" className="carousel-item h-[30%]  relative w-full">
+        <div id="slide3" className="carousel-item h-[30%] relative w-full">
           <img src='https://i.ibb.co/tH5tM6q/car3.jpg' className="w-full h-[500px]" />
           <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0">
             <a href="#slide2" className="btn btn-circle  btn-warning ms-2">❮</a>
@@ -44,8 +44,16 @@ const Banner = () => {
           </div>
           {description}
         </div>
-        <div id="slide5" className="carousel-item relative   w-full">
+        <div id="slide5" className="carousel-item relative w-full">
           <img src='https://i.ibb.co/h9vQYFj/car5.jpg' className="w-full h-[500px]" />
+          <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0">
+            <a href="#slide4" className="btn btn-circle  btn-warning ms-2">❮</a>
+            <a href="#slide1" className="btn btn-circle  btn-warning ms-2">❯</a>
+          </div>
+          {description}
+        </div>
+        <div id="slide6" className="carousel-item relative w-full">
+          <img src='https://i.ibb.co/bRR2TG7/car6.jpg' className="w-full h-[500px]" />
           <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0">
             <a href="#slide4" className="btn btn-circle  btn-warning ms-2">❮</a>
             <a href="#slide1" className="btn btn-circle  btn-warning ms-2">❯</a>

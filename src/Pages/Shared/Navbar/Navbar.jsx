@@ -4,12 +4,12 @@ import './Navbar.css';
 import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
+import { FaUserAlt } from "react-icons/fa";
 
 
 const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext);
-
     const handleLogout = () => {
         logOut()
             .then()
@@ -25,10 +25,8 @@ const Navbar = () => {
     
     return (
         <div>
-
             <div className=''>
                 <div  className="navbar  d-flex justify-between space-x-6  text-xl rounded-lg">
-
                     <div className="navbar-start  w-[90%]">
                         <div className="dropdown">
                             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -36,16 +34,17 @@ const Navbar = () => {
                             </label>
                             <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-slate-300 rounded-box w-52">
                                 <li className='font-semibold font-serif '><Link to='/'>Home</Link></li>
-                                <li className='font-semibold font-serif '><Link to='/allcars'>All Cars</Link></li>
-                                <li className='font-semibold font-serif '><Link to='/addcar'>Add Car</Link></li>
+                                <li className='font-semibold font-serif'><Link to='/allcars'>All Products</Link></li>
+                                <li className='font-semibold font-serif '><Link to='/addcar'>Add Product</Link></li>
                                 {user?.email ? (<>
 
-                                    <li className='font-semibold font-serif '><Link to={`/mycar/${user.email}`}>My Car</Link></li>
+                                    <li className='font-semibold font-serif '><Link to={`/mycar/${user.email}`}>My Cart</Link></li>
                                     <li className='font-semibold font-serif '><Link onClick={handleLogout}>Logout</Link></li>
                                 </>
                                 ) : (
-                                    <li className='font-semibold font-serif '><Link to="/login">Login</Link></li>
+                                    <li className='font-semibold font-serif '><Link to="/login">< FaUserAlt></ FaUserAlt></Link></li>
                                 )}
+                                
                             </ul>
 
                         </div>
@@ -55,26 +54,28 @@ const Navbar = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="navbar-center  space-x-8 hidden lg:flex">
-                        <ul className="menu mx-auto  font-semibold font-serif menu-horizontal space-x-8 px-1">
+                    <div className="navbar-center space-x-8 hidden lg:flex">
+                        <ul className="menu mx-auto font-semibold font-serif menu-horizontal space-x-8 px-1">
                             <li className=''><Link to='/'>Home</Link></li>
-                            <li className=''><Link to='/allcars'>All Cars</Link></li>
-                            <li className=''><Link to='/addcar'>Add Car</Link></li>
+                            <li className=''><Link to='/allcars'>All Products</Link></li>
+                            <li className=''><Link to='/addcar'>Add Product</Link></li>
                            
                         </ul>
+                        
 
-                        {user?.email ? (
+                        {user?.email? (
                             <div className='space-x-8'>
-                                <Link to={`/mycar/${user.email}`}><button className=' font-semibold font-serif '>My Car</button></Link>
+                                <Link to={`/mycar/${user.email}`}><button className=' font-semibold font-serif '>My Cart</button></Link>
                                 <button className=" font-serif text-red-500 font-bold rounded-2xl  mx-2" onClick={handleLogout} >Logout</button>
                             </div>
                         ) : (
                             <Link to="/login">
-                                <button className="text-xl font-semibold font-serif  rounded-2xl text-lime-700  me-8 btn-red-outline" >Login</button>
+                                <button className="text-xl font-semibold font-serif  rounded-2xl text-lime-700  me-8 btn-red-outline" >< FaUserAlt></ FaUserAlt></button>
                             </Link>
                         )}
 
                     </div>
+
                     {user?.email && user?.displayName ? (
                         <div style={{ hover: { backgroundColor: 'red' } }} className="navbar-end w-[10%]  ">
                              <p>{userLogin.displayName}</p>
