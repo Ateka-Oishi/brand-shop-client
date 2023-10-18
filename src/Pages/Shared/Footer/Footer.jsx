@@ -14,6 +14,7 @@ const Footer = () => {
                     <p className=' mb-4 font-serif font-bold text-2xl text-yellow-800'>Auto Motive</p>
                     <div className='text-gary-400 font-semibold'>
                         <p>We provide the best Cars!</p>
+                        <p>We are elated to introduce an unparalleled branded car experience that will elevate you to new horizons and beyond!</p>
                     </div>
                 </div>
             </div>

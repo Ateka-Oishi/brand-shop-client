@@ -1,0 +1,10 @@
+
+.photo{
+    transition-duration: 1s;
+    transition-property: transform;
+    transform: translateX(20px);
+}
+.photo:hover{
+    transform: rotateX(15deg);
+    box-shadow: 5px turquoise;
+}
