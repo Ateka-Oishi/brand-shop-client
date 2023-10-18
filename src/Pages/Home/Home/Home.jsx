@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import Banner from "../Banner/Banner";
 import Reviews from "../../Reviews/Reviews";
 import Gallery from "../Gallery/Gallery";
+import CategoryCar from "../CategoryCar/CategoryCar";
 
 const Home = () => {
     return (
@@ -21,6 +22,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            <CategoryCar></CategoryCar>
             <Gallery></Gallery>
             <Reviews></Reviews>
 

@@ -7,7 +7,7 @@ const Gallery = () => {
                 <div className="text-lime-800 font-semibold flex justify-evenly mb-4"></div>
             </div>
 
-            <div className='row grid grid-cols-2 md:grid-cols-4 h-full'>
+            <div className='row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 h-full'>
                 <div className='h-[60%]'>
                     <div className='img-area'>
                         <img className='image h-full' src="https://i.ibb.co/R9Cjy3D/sportscar.jpg" alt="" />
@@ -49,7 +49,7 @@ const Gallery = () => {
                     </div>
                 </div>
             </div>
-            <div className='row grid grid-cols-2 md:grid-cols-4 h-full'>
+            <div className='row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 h-full'>
                 <div className='h-[60%]'>
                     <div className='img-area'>
                         <img className='image h-full' src="https://i.ibb.co/kGhp04d/ford.jpg" alt="" />

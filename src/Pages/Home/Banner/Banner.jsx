@@ -7,11 +7,11 @@ const Banner = () => {
       <h5 className="md:text-2xl text-sm font-bold text-yellow-500">Introducing the Exquisite Branded Car: Fuel Your Imagination!
       </h5>
       <p className="md:text-lg text-sm text-slate-200 pt-8">Our cars kindle imagination, spark adventures, and offer hours of thrilling joy.</p>
-      <Link to={'/allcars'}><button className='btn text-white font-bold text-lg bg-yellow-600 mt-8 btn-warning'>ALL Cars</button></Link>
+      <Link to={'/allcars'}><button className='btn text-white font-bold text-lg bg-yellow-600 mt-8 btn-warning'>ALL Products</button></Link>
     </div>
   
     return (
-      <div autoPlay='true' className="carousel w-full relative">
+      <div autoPlay={true} className="carousel w-full relative">
         <div id="slide1" className="carousel-item h-[30%] relative w-full">
           <img src='https://i.ibb.co/MCLGfmQ/car1.jpg' className="w-full h-[500px] " />
           <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0 ">
