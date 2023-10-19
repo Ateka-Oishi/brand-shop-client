@@ -6,6 +6,12 @@ import Register from "../Pages/Register/Register";
 import MainLayout from "../layout/MainLayout";
 import Home from "../Pages/Home/Home/Home";
 import AddCar from "../Pages/Home/AddCar/AddCar";
+import UpdateCar from "../Pages/Home/UpdateCar/UpdateCar";
+import MyCar from "../Pages/Home/MyCar/MyCar";
+import ShowCardCar from "../Pages/ShowCard/ShowCardCar";
+import AllCars from "../Pages/Home/AllCars/AllCars";
+import CarDetails from "../Pages/Home/CarDetails/CarDetails";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -29,8 +35,29 @@ const router = createBrowserRouter([
                 element: <Register></Register>
             },
             {
-                path: 'addcar',
-                element: <AddCar></AddCar>
+                path: '/addcar',
+                element: <PrivateRoute><AddCar></AddCar></PrivateRoute>
+            },
+            {
+                path: '/updatecar/:id',
+                element: <UpdateCar></UpdateCar>,
+                loader: ({ params }) => fetch(`http://localhost:5000/updatecar/${params.id}`)
+            },
+            {
+                path: '/mycar/:email',
+                element: <MyCar></MyCar>,
+                loader: ({params})=> fetch(`http://localhost:5000/mycars/${params.email}`)
+                
+            },
+            {
+                path: '/allcars',
+                element: <PrivateRoute><AllCars></AllCars></PrivateRoute>,
+                loader: () => fetch(`http://localhost:5000/cars`)
+            },
+            {
+                path: '/allcars/:id',
+                element: <CarDetails></CarDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/cars/${params.id}`)
             }
         ]    
     },
@@ -42,6 +69,11 @@ const router = createBrowserRouter([
             {
                 path: '/home',
                 element: <Home></Home>
+            },
+            {
+                path: '/category/:category',
+                element: <ShowCardCar></ShowCardCar>,
+                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.category}`)
             }
         ]
     }

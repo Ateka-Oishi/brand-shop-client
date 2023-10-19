@@ -34,7 +34,7 @@ const Navbar = () => {
                             </label>
                             <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-slate-300 rounded-box w-52">
                                 <li className='font-semibold font-serif '><Link to='/'>Home</Link></li>
-                                <li className='font-semibold font-serif'><Link to='/allcars'>All Products</Link></li>
+                                <li className='font-semibold font-serif'><Link to='/allcars'>ALl Products</Link></li>
                                 <li className='font-semibold font-serif '><Link to='/addcar'>Add Product</Link></li>
                                 {user?.email ? (<>
 
@@ -57,8 +57,9 @@ const Navbar = () => {
                     <div className="navbar-center space-x-8 hidden lg:flex">
                         <ul className="menu mx-auto font-semibold font-serif menu-horizontal space-x-8 px-1">
                             <li className=''><Link to='/'>Home</Link></li>
-                            <li className=''><Link to='/allcars'>All Products</Link></li>
+                            <li className=''><Link to='/allcars'>ALL Products</Link></li>
                             <li className=''><Link to='/addcar'>Add Product</Link></li>
+                            
                            
                         </ul>
                         

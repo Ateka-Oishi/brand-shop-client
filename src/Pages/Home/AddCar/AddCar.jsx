@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import useTitle from "../../../Hook/Hook";
 import Swal from "sweetalert2";
 
-const AddCar = () => {
+const AddCar = (_id) => {
+    console.log(_id);
     const { user } = useContext(AuthContext);
     const { navigate } = useNavigate();
     useTitle("Add Products");
@@ -12,25 +13,25 @@ const AddCar = () => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
-        const brand_name = form.brand_name.value;
+        const brandName = form.brandName.value;
         const subCategory = form.sub_category.value;
         const picture = form.picture.value;
         const price = form.price.value;
         const rating = form.rating.value;
         const quantity = form.quantity.value;
-        const sellerName = form.seller_name.value;
-        const sellerEmail = form.seller_email.value;
+        const yourName = form.your_name.value;
+        const yourEmail = form.your_email.value;
         const details = form.description.value;
         let category_id;
-        subCategory == 'Toyota Car' ? (category_id = 100) :
-            subCategory == 'Ford Car' ? (category_id = 300) :
-                subCategory == 'BMW Car' ? (category_id = 200) :
-                    subCategory == 'Mercedes-Benz Car' ? (category_id = 400) :
-                        subCategory == 'Tesla Car' ? (category_id = 500) :
-                            subCategory == 'Honda Car' ? (category_id = 600) : category_id = 0;
+        subCategory == 'Toyota' ? (category_id = 100) :
+            subCategory == 'Ford' ? (category_id = 300) :
+                subCategory == 'BMW' ? (category_id = 200) :
+                    subCategory == 'Mercedes-Benz' ? (category_id = 400) :
+                        subCategory == 'Tesla' ? (category_id = 500) :
+                            subCategory == 'Honda' ? (category_id = 600) : category_id = 0;
 
 
-        const newAddedProduct = { name, brand_name, picture, category_id, subCategory, price, rating, sellerEmail, sellerName, quantity, details };
+        const newAddedProduct = { name, brandName, picture, category_id, subCategory, yourName, yourEmail , price, rating, quantity, details };
         console.log(newAddedProduct);
         fetch(`http://localhost:5000/cars`, {
             method: 'POST',
@@ -42,13 +43,14 @@ const AddCar = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-
+                if(data.insertedId){
                 Swal.fire({
                     title: 'Success!',
                     text: 'Product added successfully',
                     icon: 'success',
                     confirmButtonText: 'Cool'
                 })
+            }
 
             })
         navigate('/');
@@ -72,7 +74,7 @@ const AddCar = () => {
                                     <label className="label ">
                                         <span className="label-text text-lg font-semibold">Brand Name</span>
                                     </label>
-                                    <input type="text" placeholder="Brand Name" name='brand_name' className="input input-bordered" />
+                                    <input type="text" placeholder="Brand Name" name='brandName' className="input input-bordered" />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
@@ -89,12 +91,12 @@ const AddCar = () => {
                                         <div className="relative">
 
                                             <select className="block appearance-none  bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name='sub_category' id="grid-state">
-                                                <option >Toyota Car</option>
-                                                <option >Ford Car</option>
-                                                <option >BMW Car</option>
-                                                <option >Mercedes-Benz Car</option>
-                                                <option >Tesla Car</option>
-                                                <option>Honda Car</option>
+                                                <option >Toyota</option>
+                                                <option >Ford</option>
+                                                <option >BMW</option>
+                                                <option >Mercedes-Benz</option>
+                                                <option >Tesla</option>
+                                                <option>Honda</option>
                                             </select>
 
                                             <div className="pointer-events-none absolute inset-y-0 left-32 flex items-center px-2 text-gray-700">
@@ -126,15 +128,15 @@ const AddCar = () => {
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text text-lg font-semibold">Seller Name</span>
+                                        <span className="label-text text-lg font-semibold">Your Name</span>
                                     </label>
-                                    <input type="text" placeholder={user?.displayName} name='seller_name' className="input input-bordered" />
+                                    <input type="text" placeholder={user?.displayName} name='your_name' className="input input-bordered" />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text text-lg font-semibold">Seller Email</span>
+                                        <span className="label-text text-lg font-semibold">Your Email</span>
                                     </label>
-                                    <input type="email" placeholder={user?.email} name='seller_email' className="input input-bordered" />
+                                    <input type="email" placeholder={user?.email} name='your_email' className="input input-bordered" />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
@@ -144,8 +146,9 @@ const AddCar = () => {
                                 </div>
 
                                 <div className="form-control mt-6">
-                                    <button className="btn btn-error font-bold text-lg">Add Product</button>
+                                    <button type="submit" className="btn btn-error font-bold text-lg">Add Product</button>
                                 </div>
+                                
                             </div>
                         </form>
                     </div>

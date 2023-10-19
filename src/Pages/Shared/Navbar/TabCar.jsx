@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import { TabPanel, Tabs } from "react-tabs";
 import 'react-tabs/style/react-tabs.css';
 
-const TabCar = ({categoryCar}) => {
-    const { picture, name, price, rating, details, subCategory, sellerName, sellerEmail, quantity } = categoryCar;
+const TabCar = ({ categoryCar }) => {
+    const { picture, name, price, rating, details, subCategory, yourName, yourEmail, quantity } = categoryCar;
 
 
     return (

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useCars from "../../../Hook/useCars";
@@ -16,7 +17,7 @@ const CategoryCar = (params) => {
     const mercedes = cars.filter(item => item.subCategory === 'BMW');
     const tesla = cars.filter(item => item.subCategory === 'Tesla');
     const honda = cars.filter(item => item.subCategory === 'Honda');
-    console.log(toyota.length, ford.length, bmw.length, mercedes.length, tesla.length, honda.length);
+    // console.log(toyota.length, ford.length, bmw.length, mercedes.length, tesla.length, honda.length);
 
    
 
@@ -30,60 +31,60 @@ const CategoryCar = (params) => {
          <div className="card border-4 md:border-amber-600  md:w-[80%] bg-red-500 hover:scale-125 shadow-xl image-full">
        <figure><img className='w-[90%]' src='https://i.ibb.co/FhsXdty/toyotabrand.webp' alt="toyota brand" /></figure>
     <div className="card-body">
-        <h2 className="card-title">TOYOTA Brand</h2>
+        <h2 className="card-title">TOYOTA</h2>
         <p> Do You Like It?</p>
         <div className="card-actions justify-end">
-            <button className="btn md:btn-md btn-sm text-white font-bold md:text-lg bg-yellow-600 mt-8 btn-error"><Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}><Link to='/category/Toyota'>Our Products</Link></Tabs></button>
+            <button className="btn md:btn-md btn-sm text-white font-bold md:text-lg bg-yellow-600 mt-8 btn-error"><Link to='/category/Toyota'><Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>Our Products</Tabs></Link></button>
         </div>
     </div>
 </div>
 <div className="card border-4 md:border-amber-600  md:w-[80%] bg-red-500 hover:scale-125 shadow-xl image-full">
     <figure><img src='https://i.ibb.co/PZQRXcL/fordbrand.jpg' alt="ford brand" /></figure>
     <div className="card-body">
-        <h2 className="card-title">FORD Brand</h2>
+        <h2 className="card-title">FORD</h2>
         <p> Do You Like It?</p>
         <div className="card-actions justify-end">
-        <button className="btn md:btn-md btn-sm text-white font-bold md:text-lg bg-yellow-600 mt-8 btn-error"><Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}><Link to='/category/Ford'>Our Products</Link></Tabs></button>
+        <button className="btn md:btn-md btn-sm text-white font-bold md:text-lg bg-yellow-600 mt-8 btn-error"><Link to='/category/Ford'><Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>Our Products</Tabs></Link></button>
         </div>
     </div>
 </div>
 <div className="card border-4 md:border-amber-600  md:w-[80%] bg-red-500 hover:scale-125 shadow-xl image-full">
     <figure><img src='https://i.ibb.co/0KwH6Ln/bmwbrand.jpg' alt="bmw brand" /></figure>
     <div className="card-body">
-        <h2 className="card-title">BMW Brand</h2>
+        <h2 className="card-title">BMW</h2>
         <p> Do You Like It?</p>
         <div className="card-actions justify-end">
-        <button className="btn md:btn-md btn-sm text-white font-bold md:text-lg bg-yellow-600 mt-8 btn-error"><Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}><Link to='/category/Mercedes-Benz'>Our Products</Link></Tabs></button>
+        <button className="btn md:btn-md btn-sm text-white font-bold md:text-lg bg-yellow-600 mt-8 btn-error"><Link to='/category/Mercedes-Benz'><Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>Our Products</Tabs></Link></button>
         </div>
     </div>
 </div>
 <div className="card border-4 md:border-amber-600  md:w-[80%] bg-red-500 hover:scale-125 shadow-xl image-full">
     <figure><img src='https://i.ibb.co/Jyg6D99/mercedesbrand.jpg' alt="mercedes brand" /></figure>
     <div className="card-body">
-        <h2 className="card-title">MERCEDES-BENZ Brand</h2>
+        <h2 className="card-title">MERCEDES-BENZ</h2>
         <p> Do You Like It?</p>
         <div className="card-actions justify-end">
-        <button className="btn md:btn-md btn-sm text-white font-bold md:text-lg bg-yellow-600 mt-8 btn-error"><Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}><Link to='/category/BMW'>Our Products</Link></Tabs></button>
+        <button className="btn md:btn-md btn-sm text-white font-bold md:text-lg bg-yellow-600 mt-8 btn-error"><Link to='/category/BMW'><Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>Our Products</Tabs></Link></button>
         </div>
     </div>
 </div>
 <div className="card border-4 md:border-amber-600  md:w-[80%] bg-red-500 hover:scale-125 shadow-xl image-full">
     <figure><img src='https://i.ibb.co/drYWjHx/teslabrand.webp' alt="mercedes brand" /></figure>
     <div className="card-body">
-        <h2 className="card-title">TESLA Brand</h2>
+        <h2 className="card-title">TESLA</h2>
         <p> Do You Like It?</p>
         <div className="card-actions justify-end">
-        <button className="btn md:btn-md btn-sm text-white font-bold md:text-lg bg-yellow-600 mt-8 btn-error"><Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}><Link to='/category/Tesla'>Our Products</Link></Tabs></button>
+        <button className="btn md:btn-md btn-sm text-white font-bold md:text-lg bg-yellow-600 mt-8 btn-error"><Link to='/category/Tesla'><Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>Our Products</Tabs></Link></button>
         </div>
     </div>
 </div>
 <div className="card border-4 md:border-amber-600  md:w-[80%] bg-red-500 hover:scale-125 shadow-xl image-full">
     <figure><img src='https://i.ibb.co/wY9TvBQ/hondabrand.jpg' alt="mercedes brand" /></figure>
     <div className="card-body">
-        <h2 className="card-title">HONDA Brand</h2>
+        <h2 className="card-title">HONDA</h2>
         <p> Do You Like It?</p>
         <div className="card-actions justify-end">
-        <button className="btn md:btn-md btn-sm text-white font-bold md:text-lg bg-yellow-600 mt-8 btn-error"><Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}><Link to='/category/Honda'>Our Products</Link></Tabs></button>
+        <button className="btn md:btn-md btn-sm text-white font-bold md:text-lg bg-yellow-600 mt-8 btn-error"><Link to='/category/Honda'><Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>Our Products</Tabs></Link></button>
         </div>
     </div>
 </div>
