@@ -12,9 +12,9 @@ const Register = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
 
-  const handleRegistration = async(event) => {
-    event.preventDefault();
-    const form = event.target;
+  const handleRegistration = async(e) => {
+    e.preventDefault();
+    const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
     const photoURL = form.photoURL.value;

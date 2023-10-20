@@ -23,6 +23,11 @@ const Navbar = () => {
     //  const {displayName, photoURL} = userLogin;
     console.log(userLogin);
     
+
+    
+
+
+    
     return (
         <div>
             <div className=''>
@@ -36,6 +41,9 @@ const Navbar = () => {
                                 <li className='font-semibold font-serif '><Link to='/'>Home</Link></li>
                                 <li className='font-semibold font-serif'><Link to='/allcars'>ALl Products</Link></li>
                                 <li className='font-semibold font-serif '><Link to='/addcar'>Add Product</Link></li>
+                                
+      
+
                                 {user?.email ? (<>
 
                                     <li className='font-semibold font-serif '><Link to={`/mycar/${user.email}`}>My Cart</Link></li>
@@ -59,6 +67,8 @@ const Navbar = () => {
                             <li className=''><Link to='/'>Home</Link></li>
                             <li className=''><Link to='/allcars'>ALL Products</Link></li>
                             <li className=''><Link to='/addcar'>Add Product</Link></li>
+                            
+          
                             
                            
                         </ul>

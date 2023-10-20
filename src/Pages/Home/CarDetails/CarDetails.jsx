@@ -1,22 +1,48 @@
 // import React from 'react';
 
-import { FaDownload } from "react-icons/fa";
-import { useLoaderData, useParams } from "react-router-dom";
-import { PDFDownloadLink } from "@react-pdf/renderer";
+import { FaShoppingCart } from "react-icons/fa";
+import { useParams } from "react-router-dom";
 import useTitle from "../../../Hook/Hook";
-import PdfViewer from "../../PdfDownload/PdfViwer";
+import { useEffect, useState } from "react";
 
 const CarDetails = () => {
   useTitle("Car Details");
-  const carDetail = useLoaderData();
-  const id = useParams();
-  // console.log(id, CarDetail);
+  // const carDetail = useLoaderData();
+  const {id} = useParams();
+  const [carDetail, setCarDetail] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const handlePDF = () =>{
-    console.log(id);
-    <PDFDownloadLink document={<PdfViewer carDetail={carDetail} ></PdfViewer>} fileName="FORM">
-      {({loading}) => (loading ? 'Loading Document...' : <button>DOWNLOAD</button>)}
-    </PDFDownloadLink>
+  useEffect(() => {
+    fetch(`http://localhost:5000/cars/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setCarDetail(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setError(error);
+        setLoading(false);
+      });
+  }, [id]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  if (!carDetail) {
+    return <div>Car not found.</div>;
+  }
+
+
+
+  const handleCart = () =>{
+    
+  
   }
 
   return (
@@ -32,8 +58,8 @@ const CarDetails = () => {
             <p className="py-2  font-semibold">Quantity: <span className="text-red-700">{carDetail.quantity}</span></p>
             <p className="py-2  font-semibold">Rating:  <span className="text-red-700">{carDetail.rating}</span></p>
             
-          <div className="mt-6 flex justify-center"><button  className="btn btn-error gap-4"><FaDownload></FaDownload> Download Details as PDF</button></div>
-         { handlePDF()}
+          <div className="mt-6 flex justify-center"><button onClick={()=>handleCart(carDetail)}  className="btn btn-error gap-4"><FaShoppingCart className="flex"></FaShoppingCart>Add to Cart</button></div>
+         
           </div>
         </div>
       </div>

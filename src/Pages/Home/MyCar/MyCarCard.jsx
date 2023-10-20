@@ -76,7 +76,7 @@ const MyCarCard = ({ car }) => {
                             </div>
                         </td>
                         <td className=" bg-cyan-200 w-20">
-                            <button className="btn btn-error text-white "><Link to={`/allcars/${_id}`}>Details</Link></button>
+                            <button className="btn btn-error text-white "><Link to={`/allcars/${categoryCar._id}`}>Details</Link></button>
                         </td>
                     </tr>
                     {/* row 2 */}

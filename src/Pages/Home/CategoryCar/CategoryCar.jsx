@@ -13,8 +13,8 @@ const CategoryCar = (params) => {
     const cars = useCars();
     const toyota = cars.filter(item => item.subCategory === 'Toyota');
     const ford = cars.filter(item => item.subCategory === 'Ford');
-    const bmw = cars.filter(item => item.subCategory === 'Mercedes-Benz');
-    const mercedes = cars.filter(item => item.subCategory === 'BMW');
+    const bmw = cars.filter(item => item.subCategory === 'BMW');
+    const mercedes = cars.filter(item => item.subCategory === 'Mercedes-Benz');
     const tesla = cars.filter(item => item.subCategory === 'Tesla');
     const honda = cars.filter(item => item.subCategory === 'Honda');
     // console.log(toyota.length, ford.length, bmw.length, mercedes.length, tesla.length, honda.length);
@@ -54,7 +54,7 @@ const CategoryCar = (params) => {
         <h2 className="card-title">BMW</h2>
         <p> Do You Like It?</p>
         <div className="card-actions justify-end">
-        <button className="btn md:btn-md btn-sm text-white font-bold md:text-lg bg-yellow-600 mt-8 btn-error"><Link to='/category/Mercedes-Benz'><Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>Our Products</Tabs></Link></button>
+        <button className="btn md:btn-md btn-sm text-white font-bold md:text-lg bg-yellow-600 mt-8 btn-error"><Link to='/category/BMW'><Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>Our Products</Tabs></Link></button>
         </div>
     </div>
 </div>
@@ -64,7 +64,7 @@ const CategoryCar = (params) => {
         <h2 className="card-title">MERCEDES-BENZ</h2>
         <p> Do You Like It?</p>
         <div className="card-actions justify-end">
-        <button className="btn md:btn-md btn-sm text-white font-bold md:text-lg bg-yellow-600 mt-8 btn-error"><Link to='/category/BMW'><Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>Our Products</Tabs></Link></button>
+        <button className="btn md:btn-md btn-sm text-white font-bold md:text-lg bg-yellow-600 mt-8 btn-error"><Link to='/category/Mercedes-Benz'><Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>Our Products</Tabs></Link></button>
         </div>
     </div>
 </div>

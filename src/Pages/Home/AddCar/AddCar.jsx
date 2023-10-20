@@ -21,7 +21,7 @@ const AddCar = (_id) => {
         const quantity = form.quantity.value;
         const yourName = form.your_name.value;
         const yourEmail = form.your_email.value;
-        const details = form.description.value;
+        const details = form.details.value;
         let category_id;
         subCategory == 'Toyota' ? (category_id = 100) :
             subCategory == 'Ford' ? (category_id = 300) :
@@ -140,9 +140,9 @@ const AddCar = (_id) => {
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text text-lg font-semibold">Description</span>
+                                        <span className="label-text text-lg font-semibold">Details</span>
                                     </label>
-                                    <input type="text" placeholder="Description" name='description' className="input textarea row-2 input-bordered" />
+                                    <input type="text" placeholder="Details" name='details' className="input textarea row-2 input-bordered" />
                                 </div>
 
                                 <div className="form-control mt-6">

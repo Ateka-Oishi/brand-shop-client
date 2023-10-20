@@ -8,6 +8,7 @@ import MyCarCard from './MyCarCard';
 const MyCar = () => {
     useTitle("My Cart");
     const { user } = useContext(AuthContext);
+    console.log(user);
     const cars = useLoaderData();
     console.log(cars);
 

@@ -1,16 +1,18 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
-import { TabPanel, Tabs } from "react-tabs";
+import { FaPenSquare} from "react-icons/fa";
+import {  TabPanel, Tabs } from "react-tabs";
 import 'react-tabs/style/react-tabs.css';
 
 const TabCar = ({ categoryCar }) => {
     const { picture, name, price, rating, details, subCategory, yourName, yourEmail, quantity } = categoryCar;
 
 
-    return (
-        <div  className=' m-6rounded-lg  '>
+    return (           
+           <div  className=' m-6rounded-lg  '>
             <div >
                 <Tabs  className="p-6" >
-                    
                     <TabPanel  className="border-1 shadow-lg mt-2">
                         <div className="card bg-orange-50 border-2  shadow-xl">
                             <div className="px-2 w-[90%] mx-auto mt-[-20px] ">
@@ -20,19 +22,19 @@ const TabCar = ({ categoryCar }) => {
                                 <h2 className="card-title">{name}</h2>
                                 <p>{details}</p>
                                 <div className="card-actions">
-                                <button className="btn btn-error text-white "><Link to={`/allcars/${categoryCar._id}`}>Details</Link></button>
-                                </div>
+                  <button className="btn btn-error text-white "><Link to={`/allcars/${categoryCar._id}`}>Details</Link></button>
+                  <button className="btn btn-error text-white "><Link to={`/updatecar/${categoryCar._id}`}><FaPenSquare>Update</FaPenSquare></Link></button>
+                        </div>
                             </div>
                         </div>
+                       
                     </TabPanel>
-                    <TabPanel> </TabPanel>
-                    <TabPanel> </TabPanel>
-                    <TabPanel> </TabPanel>
-                    <TabPanel> </TabPanel>
-                    <TabPanel> </TabPanel>
 
                 </Tabs>
+        
             </div>
+        
+        
         </div>
     );
 };

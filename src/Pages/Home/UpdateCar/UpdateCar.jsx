@@ -1,17 +1,18 @@
 
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const UpdateCar = () => {
     const Car = useLoaderData();
     const { _id, name, subCategory, picture, price, rating, quantity, details ,yourName, yourEmail } = Car;
-    const userEmail = localStorage.getItem('user')
-    console.log(userEmail);
+    // const userEmail = localStorage.getItem('user')
+    // console.log(userEmail);
 
     const handleUpdateCar = (e) =>{
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
+        const brandName = form.brandName.value;
         const subCategory = form.sub_category.value;
         const picture = form.picture.value;
         const price= form.price.value;
@@ -19,7 +20,7 @@ const UpdateCar = () => {
         const quantity = form.quantity.value;
         const yourName = form.your_name.value;
         const yourEmail = form.your_email.value;
-        // const details = form.description.value;
+        const details = form.details.value;
         let category_id;
         subCategory == 'Toyota' ? (category_id = 100) :  
         subCategory == 'Ford' ? (category_id = 300) :
@@ -29,7 +30,7 @@ const UpdateCar = () => {
         subCategory == 'Honda' ? (category_id = 600) : category_id = 0; 
 
 
-        const newAddedCar = {name, picture,category_id, subCategory, price, rating, yourEmail, yourName, quantity, details};
+        const newAddedCar = {name, brandName, picture,category_id, subCategory, price, rating, yourEmail, yourName, quantity, details};
         console.log(newAddedCar);
         //send data to server from client
         fetch(`http://localhost:5000/cars/${_id}`, {
@@ -73,7 +74,13 @@ const UpdateCar = () => {
                             <label className="label">
                                 <span className="label-text">Product Name</span>
                             </label>
-                            <input type="text" placeholder="Brand Name" name='name' defaultValue={name} className="input input-bordered" />
+                            <input type="text" placeholder="Name" name='name' defaultValue={name} className="input input-bordered" />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Brand Name</span>
+                            </label>
+                            <input type="text" placeholder="Brand Name" name='brandName' defaultValue={name} className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -137,15 +144,15 @@ const UpdateCar = () => {
                             </label>
                             <input type="email" defaultValue={yourEmail} placeholder="Your Email" name='your_email' className="input input-bordered" />
                         </div>
-                        {/* <div className="form-control">
+                        <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Description</span>
+                                <span className="label-text">Details</span>
                             </label>
-                            <input type="text" defaultValue={details} placeholder="Description" name='description' className="input textarea row-2 input-bordered" />
-                        </div> */}
+                            <input type="text" defaultValue={details} placeholder="Details" name='details' className="input textarea row-2 input-bordered" />
+                        </div>
 
                         <div className="form-control mt-6">
-                           <button type='submit' className="btn btn-primary">Update Car</button>
+                           <button type='submit' className="btn btn-primary"><Link to='/allcars/${categoryCar._id}'>Update Car</Link></button>
                         </div>
                     </div>
                 </form>
