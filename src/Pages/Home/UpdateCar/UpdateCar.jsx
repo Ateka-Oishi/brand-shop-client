@@ -33,7 +33,7 @@ const UpdateCar = () => {
         const newAddedCar = {name, brandName, picture,category_id, subCategory, price, rating, yourEmail, yourName, quantity, details};
         console.log(newAddedCar);
         //send data to server from client
-        fetch(`http://localhost:5000/cars/${_id}`, {
+        fetch(`https://brand-shop-server-ixosafvvp-ateka-sultanas-projects.vercel.app/cars/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

@@ -29,7 +29,7 @@ const CategoryCar = (params) => {
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:mb-8 gap-2 md:gap-8 md:px-12 p-2 md:py-4'>
 
          <div className="card border-4 md:border-amber-600  md:w-[80%] bg-red-500 hover:scale-125 shadow-xl image-full">
-       <figure><img className='w-[90%]' src='https://i.ibb.co/FhsXdty/toyotabrand.webp' alt="toyota brand" /></figure>
+       <figure><img className='w-[90%]' src='https://i.ibb.co/mcTrmGp/l.jpg' alt="toyota brand" /></figure>
     <div className="card-body">
         <h2 className="card-title">TOYOTA</h2>
         <p> Do You Like It?</p>
@@ -39,7 +39,7 @@ const CategoryCar = (params) => {
     </div>
 </div>
 <div className="card border-4 md:border-amber-600  md:w-[80%] bg-red-500 hover:scale-125 shadow-xl image-full">
-    <figure><img src='https://i.ibb.co/PZQRXcL/fordbrand.jpg' alt="ford brand" /></figure>
+    <figure><img src='https://i.ibb.co/PQ3jP1s/forrr.webp' alt="ford brand" /></figure>
     <div className="card-body">
         <h2 className="card-title">FORD</h2>
         <p> Do You Like It?</p>
@@ -49,7 +49,7 @@ const CategoryCar = (params) => {
     </div>
 </div>
 <div className="card border-4 md:border-amber-600  md:w-[80%] bg-red-500 hover:scale-125 shadow-xl image-full">
-    <figure><img src='https://i.ibb.co/0KwH6Ln/bmwbrand.jpg' alt="bmw brand" /></figure>
+    <figure><img src='https://i.ibb.co/ySX1pX5/bmww.jpg' alt="bmw brand" /></figure>
     <div className="card-body">
         <h2 className="card-title">BMW</h2>
         <p> Do You Like It?</p>
@@ -59,7 +59,7 @@ const CategoryCar = (params) => {
     </div>
 </div>
 <div className="card border-4 md:border-amber-600  md:w-[80%] bg-red-500 hover:scale-125 shadow-xl image-full">
-    <figure><img src='https://i.ibb.co/Jyg6D99/mercedesbrand.jpg' alt="mercedes brand" /></figure>
+    <figure><img src='https://i.ibb.co/Kq71SnJ/mercedesss.jpg' alt="mercedes brand" /></figure>
     <div className="card-body">
         <h2 className="card-title">MERCEDES-BENZ</h2>
         <p> Do You Like It?</p>
@@ -69,7 +69,7 @@ const CategoryCar = (params) => {
     </div>
 </div>
 <div className="card border-4 md:border-amber-600  md:w-[80%] bg-red-500 hover:scale-125 shadow-xl image-full">
-    <figure><img src='https://i.ibb.co/drYWjHx/teslabrand.webp' alt="mercedes brand" /></figure>
+    <figure><img src='https://i.ibb.co/GFrTdb8/Tesla-1.png' alt="mercedes brand" /></figure>
     <div className="card-body">
         <h2 className="card-title">TESLA</h2>
         <p> Do You Like It?</p>
@@ -79,7 +79,7 @@ const CategoryCar = (params) => {
     </div>
 </div>
 <div className="card border-4 md:border-amber-600  md:w-[80%] bg-red-500 hover:scale-125 shadow-xl image-full">
-    <figure><img src='https://i.ibb.co/wY9TvBQ/hondabrand.jpg' alt="mercedes brand" /></figure>
+    <figure><img src='https://i.ibb.co/YLH6RBM/hondaa.png' alt="mercedes brand" /></figure>
     <div className="card-body">
         <h2 className="card-title">HONDA</h2>
         <p> Do You Like It?</p>

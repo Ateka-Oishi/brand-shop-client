@@ -41,23 +41,23 @@ const router = createBrowserRouter([
             {
                 path: '/updatecar/:id',
                 element: <UpdateCar></UpdateCar>,
-                loader: ({ params }) => fetch(`http://localhost:5000/updatecar/${params.id}`)
+                loader: ({ params }) => fetch(`https://brand-shop-server-ixosafvvp-ateka-sultanas-projects.vercel.app/updatecar/${params.id}`)
             },
             {
                 path: '/mycar/:id',
                 element: <PrivateRoute><MyCar></MyCar></PrivateRoute>,
-                loader: ({params})=> fetch(`http://localhost:5000/mycars/${params.id}`)
+                loader: ({params})=> fetch(`https://brand-shop-server-ixosafvvp-ateka-sultanas-projects.vercel.app/mycars/${params.id}`)
                 
             },
             {
                 path: '/allcars',
                 element: <PrivateRoute><AllCars></AllCars></PrivateRoute>,
-                loader: () => fetch(`http://localhost:5000/cars`)
+                loader: () => fetch(`https://brand-shop-server-ixosafvvp-ateka-sultanas-projects.vercel.app/cars`)
             },
             {
                 path: '/allcars/:id',
                 element: <CarDetails></CarDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/cars/${params.id}`)
+                loader: ({ params }) => fetch(`https://brand-shop-server-ixosafvvp-ateka-sultanas-projects.vercel.app/cars/${params.id}`)
             },
             
         ]    
@@ -74,7 +74,7 @@ const router = createBrowserRouter([
             {
                 path: '/category/:category',
                 element: <ShowCardCar></ShowCardCar>,
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.category}`)
+                loader: ({ params }) => fetch(`https://brand-shop-server-ixosafvvp-ateka-sultanas-projects.vercel.app/category/${params.category}`)
             }
         ]
     }

@@ -12,7 +12,7 @@ const AllCars = () => {
 
     const search = () => {
         fetch(
-            `http://localhost:5000/getSearchByBrandName/${searchText}`
+            `https://brand-shop-server-ixosafvvp-ateka-sultanas-projects.vercel.app/getSearchByBrandName/${searchText}`
            
         )
             .then((res) => res.json())

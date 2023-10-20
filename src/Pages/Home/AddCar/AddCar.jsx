@@ -33,7 +33,7 @@ const AddCar = (_id) => {
 
         const newAddedProduct = { name, brandName, picture, category_id, subCategory, yourName, yourEmail , price, rating, quantity, details };
         console.log(newAddedProduct);
-        fetch(`http://localhost:5000/cars`, {
+        fetch(`https://brand-shop-server-ixosafvvp-ateka-sultanas-projects.vercel.app/cars`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

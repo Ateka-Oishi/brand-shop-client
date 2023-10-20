@@ -22,10 +22,6 @@ const Navbar = () => {
     //  const userLogin = JSON.parse(localStorage.getItem('user'));
     //  const {displayName, photoURL} = userLogin;
     console.log(userLogin);
-    
-
-    
-
 
     
     return (

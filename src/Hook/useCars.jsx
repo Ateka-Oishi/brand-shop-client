@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 const useCars = () => {
     const [cars, setCars] = useState([]);
-    fetch('http://localhost:5000/cars')
+    fetch('https://brand-shop-server-ixosafvvp-ateka-sultanas-projects.vercel.app/cars')
     .then(res => res.json())
     .then(data => setCars(data))
     
