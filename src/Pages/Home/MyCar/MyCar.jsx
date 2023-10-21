@@ -11,6 +11,14 @@ const MyCar = () => {
     console.log(user);
     const cars = useLoaderData();
     console.log(cars);
+fetch(`https://brand-shop-server-ixosafvvp-ateka-sultanas-projects.vercel.app/mycar`)
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
 
     return (
         <div>
@@ -31,8 +39,12 @@ const MyCar = () => {
                     </thead>
                 </table>
                 {
-                    cars.map(car => <MyCarCard key={car.id} car={car}></MyCarCard>)
-                }
+      Array.isArray(cars) ? (
+      cars.map((car) => <MyCarCard key={car._id} car={car}></MyCarCard>)
+  ) : (
+     <div>No cars found.</div>
+  )
+}
             </div>
         </div>
     );

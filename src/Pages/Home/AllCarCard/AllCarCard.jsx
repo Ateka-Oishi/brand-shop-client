@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const AllCarCard = ({car}) => {
+const AllCarCard = ({car, addToCart}) => {
     console.log(car);
 
     const {_id, picture, name, price, rating, subCategory, yourName, yourEmail, quantity } = car;
@@ -37,6 +37,7 @@ const AllCarCard = ({car}) => {
                     <td className="shadow-lime-300 my-8 border-0 w-[24%] "><a href={yourEmail}>{yourName}</a></td>
                     <th className=" w-20">
                         <button className="btn btn-error text-white "><Link to={`/allcars/${_id}`}>Details</Link></button>
+
                     </th>
                 </tr>
                 {/* row 2 */}

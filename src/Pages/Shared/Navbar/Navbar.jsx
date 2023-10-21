@@ -1,15 +1,18 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import logo from '/logo.png';
 import './Navbar.css';
 import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { FaUserAlt } from "react-icons/fa";
+import { useEffect } from "react";
 
 
 const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext);
+    const [theme, setTheme] = useState('light');
+
     const handleLogout = () => {
         logOut()
             .then()
@@ -23,10 +26,33 @@ const Navbar = () => {
     //  const {displayName, photoURL} = userLogin;
     console.log(userLogin);
 
+    useEffect(() => {
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            setTheme("light");
+        } else {
+            setTheme("dark");
+        }
+    }, []);
+
+    useEffect(() => {
+        if (theme === "dark") {
+            document.documentElement.classList.add("dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+        }
+    }, [theme]);
+
+    const handleThemeSwitch = () => {
+        console.log("clicked")
+        setTheme(theme === "dark" ? "light" : "dark");
+    };
+
+
+
     
     return (
-        <div>
-            <div className=''>
+        <div className="">
+                <div className=''>
                 <div  className="navbar  d-flex justify-between space-x-6  text-xl rounded-lg">
                     <div className="navbar-start  w-[90%]">
                         <div className="dropdown">
@@ -36,12 +62,11 @@ const Navbar = () => {
                             <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-slate-300 rounded-box w-52">
                                 <li className='font-semibold font-serif '><Link to='/'>Home</Link></li>
                                 <li className='font-semibold font-serif'><Link to='/allcars'>ALl Products</Link></li>
-                                <li className='font-semibold font-serif '><Link to='/addcar'>Add Product</Link></li>
-                                
-      
-
+                                <li className='font-semibold font-serif '><Link to='/addcar'>Add Product</Link></li>  
+                                <div className='flex gap-2  rounded-3xl ms-4  hover:text-red-400  '>Dark
+                                <input role='switch' id='black' defaultChecked onClick={handleThemeSwitch} type="checkbox" className="toggle px-4 " />
+                            </div>
                                 {user?.email ? (<>
-
                                     <li className='font-semibold font-serif '><Link to={`/mycar/${user.email}`}>My Cart</Link></li>
                                     <li className='font-semibold font-serif '><Link onClick={handleLogout}>Logout</Link></li>
                                 </>
@@ -63,10 +88,9 @@ const Navbar = () => {
                             <li className=''><Link to='/'>Home</Link></li>
                             <li className=''><Link to='/allcars'>ALL Products</Link></li>
                             <li className=''><Link to='/addcar'>Add Product</Link></li>
-                            
-          
-                            
-                           
+                            <div className='flex gap-2  rounded-3xl ms-4  hover:text-red-400  '>Dark
+                                <input role='switch' id='black' defaultChecked onClick={handleThemeSwitch} type="checkbox" className="toggle px-4 " />
+                            </div>                            
                         </ul>
                         
 
@@ -103,7 +127,7 @@ const Navbar = () => {
                     pauseOnFocusLoss
                     draggable
                     pauseOnHover
-                    theme="light"
+                    // theme="light"
                 />
                 <ToastContainer />
         </div>

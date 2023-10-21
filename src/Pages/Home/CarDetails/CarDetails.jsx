@@ -1,12 +1,15 @@
 // import React from 'react';
 
 import { FaShoppingCart } from "react-icons/fa";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import useTitle from "../../../Hook/Hook";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 const CarDetails = () => {
   useTitle("Car Details");
+
+  const {user} = useContext(AuthContext)
   // const carDetail = useLoaderData();
   const {id} = useParams();
   const [carDetail, setCarDetail] = useState(null);
@@ -14,7 +17,13 @@ const CarDetails = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`https://brand-shop-server-ixosafvvp-ateka-sultanas-projects.vercel.app/cars/${id}`)
+    fetch(`https://brand-shop-server-ixosafvvp-ateka-sultanas-projects.vercel.app/cars/${id}`,{
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      
+    })
       .then((res) => res.json())
       .then((data) => {
         setCarDetail(data);
@@ -25,6 +34,8 @@ const CarDetails = () => {
         setLoading(false);
       });
   }, [id]);
+
+ 
 
   if (loading) {
     return <div>Loading...</div>;
@@ -37,13 +48,28 @@ const CarDetails = () => {
   if (!carDetail) {
     return <div>Car not found.</div>;
   }
+  const handleCart = ()=>{
+    //  user();
+     fetch(`https://brand-shop-server-ixosafvvp-ateka-sultanas-projects.vercel.app/mycar/:${email}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(carDetail), // Send the product details
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setCarDetail(data);
+      })
+      .catch((error) => {
+        setError(error);
+     });
 
-
-
-  const handleCart = () =>{
-    
-  
   }
+
+
+
+  
 
   return (
     <div>
@@ -58,7 +84,7 @@ const CarDetails = () => {
             <p className="py-2  font-semibold">Quantity: <span className="text-red-700">{carDetail.quantity}</span></p>
             <p className="py-2  font-semibold">Rating:  <span className="text-red-700">{carDetail.rating}</span></p>
             
-          <div className="mt-6 flex justify-center"><button onClick={()=>handleCart(carDetail)}  className="btn btn-error gap-4"><FaShoppingCart className="flex"></FaShoppingCart>Add to Cart</button></div>
+          <div className="mt-6 flex justify-center"><Link to={`/mycar/:email`}><button onClick={()=>handleCart(user?.email)}  className="btn btn-error gap-4"><FaShoppingCart className="flex"></FaShoppingCart>Add to Cart</button></Link></div>
          
           </div>
         </div>

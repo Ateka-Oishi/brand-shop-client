@@ -1,8 +1,8 @@
 # Website : Shopping Brand - AUTOMOTIVE
 
-Client Link : https://shopping-brand.web.app
+Client Live Link : https://shopping-brand.web.app
 
-Server Link : https://brand-shop-server-ixosafvvp-ateka-sultanas-projects.vercel.app
+Server Live Link : https://brand-shop-server-ixosafvvp-ateka-sultanas-projects.vercel.app
 
 ## Q&A Sections
 - Add at least 5 Project features of "Shopping Brand - AUTOMOTIVE"
@@ -40,12 +40,12 @@ npm i react-toastify
 ```bash
 npm run dev
 ```
-* Open [http://localhost:5173/](http://localhost:5173/) with your browser to start your local instance of `Shopping BrandAUTOMOTIVE`.
+* Open [http://localhost:5173/](http://localhost:5173/) with your browser to start your local instance of `Shopping Brand - AUTOMOTIVE`.
 
 
 # Deploy on Vercel & Firebase
 
-# Client and Server Site Link
+# Client and Server Site CODE Link
 
 - [Client](https://github.com/programming-hero-web-course-4/b8a10-brandshop-client-side-Ateka-Oishi) 
 

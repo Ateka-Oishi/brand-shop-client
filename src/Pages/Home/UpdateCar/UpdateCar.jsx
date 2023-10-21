@@ -30,15 +30,15 @@ const UpdateCar = () => {
         subCategory == 'Honda' ? (category_id = 600) : category_id = 0; 
 
 
-        const newAddedCar = {name, brandName, picture,category_id, subCategory, price, rating, yourEmail, yourName, quantity, details};
-        console.log(newAddedCar);
+        const updatedProduct = {name, brandName, picture,category_id, subCategory, price, rating, yourEmail, yourName, quantity, details};
+        console.log(updatedProduct);
         //send data to server from client
         fetch(`https://brand-shop-server-ixosafvvp-ateka-sultanas-projects.vercel.app/cars/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(newAddedCar)
+            body: JSON.stringify(updatedProduct)
         })
         .then(res => res.json())
         .then(data => {
@@ -80,7 +80,7 @@ const UpdateCar = () => {
                             <label className="label">
                                 <span className="label-text">Brand Name</span>
                             </label>
-                            <input type="text" placeholder="Brand Name" name='brandName' defaultValue={name} className="input input-bordered" />
+                            <input type="text" placeholder="Brand Name" name='brandName' defaultValue='brandName' className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -136,7 +136,7 @@ const UpdateCar = () => {
                             <label className="label">
                                 <span className="label-text">Your Name</span>
                             </label>
-                            <input type="text" defaultValue={yourName} placeholder="Your Name" name='your_name' className="input input-bordered" />
+                            <input type="text" defaultValue={yourName} placeholder={"Your Name"} name='your_name' className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">

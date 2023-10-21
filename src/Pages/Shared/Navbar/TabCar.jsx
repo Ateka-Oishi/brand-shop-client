@@ -20,7 +20,9 @@ const TabCar = ({ categoryCar }) => {
                             </div>
                             <div className="card-body items-center text-center">
                                 <h2 className="card-title">{name}</h2>
-                                <p>{details}</p>
+                                <p>{price}</p>
+                                <p>{rating}</p>
+                                <p>{subCategory}</p>
                                 <div className="card-actions">
                   <button className="btn btn-error text-white "><Link to={`/allcars/${categoryCar._id}`}>Details</Link></button>
                   <button className="btn btn-error text-white "><Link to={`/updatecar/${categoryCar._id}`}><FaPenSquare>Update</FaPenSquare></Link></button>
@@ -31,7 +33,7 @@ const TabCar = ({ categoryCar }) => {
                     </TabPanel>
 
                 </Tabs>
-        
+        -
             </div>
         
         

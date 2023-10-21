@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 // import React from 'react';
 
 import { FaTrash } from "react-icons/fa";
@@ -5,12 +6,12 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
-const MyCarCard = ({ car }) => {
+const MyCarCard = ({ car, cars, setCars }) => {
     console.log(car);
     const { _id, picture, name, price, rating, subCategory, yourName, yourEmail, quantity } = car;
 
-    const handleDelete = ( id )=> {
-        console.log(id);
+    const handleDelete = ( _id )=> {
+        console.log(_id);
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to cancel this!",
@@ -21,7 +22,7 @@ const MyCarCard = ({ car }) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://brand-shop-server-ixosafvvp-ateka-sultanas-projects.vercel.app/cars/${id}`, {
+                fetch(`https://brand-shop-server-ixosafvvp-ateka-sultanas-projects.vercel.app/cars/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -32,6 +33,8 @@ const MyCarCard = ({ car }) => {
                                 'Your Product has been deleted.',
                                 'success'
                             )
+                            const remaining = cars.filter( carr => carr._id !== _id )
+                            setCars(remaining);
 
                         }
                     })
@@ -39,6 +42,7 @@ const MyCarCard = ({ car }) => {
         })
 
     }
+   
     return ( 
         <div className="overflow-x-auto w-full">
             <table className="table w-full">
@@ -76,7 +80,8 @@ const MyCarCard = ({ car }) => {
                             </div>
                         </td>
                         <td className=" bg-cyan-200 w-20">
-                            <button className="btn btn-error text-white "><Link to={`/allcars/${categoryCar._id}`}>Details</Link></button>
+                            <button className="btn btn-error text-white "><Link to={`/mycar/${categoryCar._id}`}>Details</Link></button>
+
                         </td>
                     </tr>
                     {/* row 2 */}

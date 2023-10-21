@@ -30,6 +30,7 @@ const AllCars = () => {
         e.preventDefault();
         search();
     };
+   
 
     return (
         <div className="p-8 bg-gradient-to-r from-cyan-200 to-purple-200 overflow-x-auto w-full md:text-lg">

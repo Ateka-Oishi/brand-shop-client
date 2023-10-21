@@ -74,7 +74,7 @@ const AddCar = (_id) => {
                                     <label className="label ">
                                         <span className="label-text text-lg font-semibold">Brand Name</span>
                                     </label>
-                                    <input type="text" placeholder="Brand Name" name='brandName' className="input input-bordered" />
+                                    <input type="text" placeholder="Brand Name" name='brandName' defaultValue='brandName' className="input input-bordered" />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
