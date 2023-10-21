@@ -10,7 +10,8 @@ const MyCar = () => {
     const { user } = useContext(AuthContext);
     console.log(user);
     const cars = useLoaderData();
-    console.log(cars);
+    const { _id, picture, name, price, rating, subCategory, yourName, yourEmail, quantity } = cars;
+
 fetch(`https://brand-shop-server-ixosafvvp-ateka-sultanas-projects.vercel.app/mycar`)
   .then(response => response.json())
   .then(data => {

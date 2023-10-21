@@ -6,7 +6,7 @@ import {  TabPanel, Tabs } from "react-tabs";
 import 'react-tabs/style/react-tabs.css';
 
 const TabCar = ({ categoryCar }) => {
-    const { picture, name, price, rating, details, subCategory, yourName, yourEmail, quantity } = categoryCar;
+    const { picture,brandName, name, price, rating, details, subCategory, yourName, yourEmail, quantity } = categoryCar;
 
 
     return (           
@@ -19,10 +19,12 @@ const TabCar = ({ categoryCar }) => {
                                 <img src={picture} className="rounded-xl shadow-red-400 shadow-lg w-full h-64" />
                             </div>
                             <div className="card-body items-center text-center">
-                                <h2 className="card-title">{name}</h2>
-                                <p>{price}</p>
-                                <p>{rating}</p>
-                                <p>{subCategory}</p>
+                                <h2 className="card-title">Product Name: {name}</h2>
+                                <h2 className="card-title">Brand: {brandName}</h2>
+                                <p>Type: {subCategory}</p>
+                                <p>Price: $ {price}</p>
+                                <p>Rating: {rating}</p>
+                                <p>Details: {details}</p>
                                 <div className="card-actions">
                   <button className="btn btn-error text-white "><Link to={`/allcars/${categoryCar._id}`}>Details</Link></button>
                   <button className="btn btn-error text-white "><Link to={`/updatecar/${categoryCar._id}`}><FaPenSquare>Update</FaPenSquare></Link></button>

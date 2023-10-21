@@ -1,7 +1,7 @@
 // import React from 'react';
 
 import { FaShoppingCart } from "react-icons/fa";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import useTitle from "../../../Hook/Hook";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
@@ -10,7 +10,8 @@ const CarDetails = () => {
   useTitle("Car Details");
 
   const {user} = useContext(AuthContext)
-  // const carDetail = useLoaderData();
+  const car = useLoaderData();
+
   const {id} = useParams();
   const [carDetail, setCarDetail] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -49,7 +50,7 @@ const CarDetails = () => {
     return <div>Car not found.</div>;
   }
   const handleCart = ()=>{
-    //  user();
+    user(car);
      fetch(`https://brand-shop-server-ixosafvvp-ateka-sultanas-projects.vercel.app/mycar/:${email}`, {
       method: 'POST',
       headers: {
