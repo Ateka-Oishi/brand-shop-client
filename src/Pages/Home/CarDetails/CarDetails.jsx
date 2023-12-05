@@ -51,7 +51,7 @@ const CarDetails = () => {
   }
   const handleCart = ()=>{
     user(car);
-     fetch(`https://brand-shop-server-ixosafvvp-ateka-sultanas-projects.vercel.app/mycar/:${email}`, {
+     fetch(`https://brand-shop-server-ixosafvvp-ateka-sultanas-projects.vercel.app/mycar?email=${user.email}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -78,12 +78,12 @@ const CarDetails = () => {
         <div className="hero-content  rounded-lg flex-col me-8 lg:flex-row">
           <img src={carDetail.picture} className="max-w-sm rounded-lg shadow-2xl" />
           <div className="p-8 border-2 space-y-2 bg-cyan-50 rounded-xl font-serif shadow-red-400 shadow-lg">
-            <h1 className="text-5xl text-red-800 font-bold text-center mb-8">{carDetail.name}</h1>
-            <p className="py-2 text-amber-700 font-semibold">{carDetail.details}</p>
-            <p className="py-2  font-semibold">Brand: <span className="text-red-700">{carDetail.name}</span></p>
-            <p className="py-2  font-semibold">Price: <span className="text-red-700">$ {carDetail.price}</span></p>
-            <p className="py-2  font-semibold">Quantity: <span className="text-red-700">{carDetail.quantity}</span></p>
-            <p className="py-2  font-semibold">Rating:  <span className="text-red-700">{carDetail.rating}</span></p>
+            <h1 className="text-5xl text-red-800 font-bold text-center mb-8">Brand: {carDetail.brandName}</h1>
+            <p className="py-2  font-semibold"><span className="text-amber-700">Details:</span> {carDetail.details}</p>
+            <p className="py-2  font-semibold"><span className="text-red-700">Product Name:</span> {carDetail.name}</p>
+            <p className="py-2  font-semibold"><span className="text-red-700">Price:</span> ${carDetail.price}</p>
+            <p className="py-2  font-semibold"><span className="text-red-700">Quantity: </span>{carDetail.quantity}</p>
+            <p className="py-2  font-semibold"><span className="text-red-700">Rating: </span>{carDetail.rating}</p>
             
           <div className="mt-6 flex justify-center"><Link to={`/mycar/:email`}><button onClick={()=>handleCart(user?.email)}  className="btn btn-error gap-4"><FaShoppingCart className="flex"></FaShoppingCart>Add to Cart</button></Link></div>
          

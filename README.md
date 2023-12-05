@@ -1,6 +1,6 @@
 # Website : Shopping Brand - AUTOMOTIVE
 
-Client Live Link : https://shopping-brand.web.app
+<!-- Client Live Link : https://shopping-brand.web.app -->
 
 Server Live Link : https://brand-shop-server-ixosafvvp-ateka-sultanas-projects.vercel.app
 

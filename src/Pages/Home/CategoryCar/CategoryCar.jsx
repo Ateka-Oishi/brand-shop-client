@@ -17,7 +17,7 @@ const CategoryCar = (params) => {
     const mercedes = cars.filter(item => item.subCategory === 'Mercedes-Benz');
     const tesla = cars.filter(item => item.subCategory === 'Tesla');
     const honda = cars.filter(item => item.subCategory === 'Honda');
-    // console.log(toyota.length, ford.length, bmw.length, mercedes.length, tesla.length, honda.length);
+    console.log(toyota.length, ford.length, bmw.length, mercedes.length, tesla.length, honda.length);
 
    
 

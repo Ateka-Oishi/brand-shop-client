@@ -3,8 +3,8 @@ import { Link, useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const UpdateCar = () => {
-    const Car = useLoaderData();
-    const { _id, name, subCategory, picture, price, rating, quantity, details ,yourName, yourEmail } = Car;
+    const car = useLoaderData();
+    const { _id, name, subCategory, picture, price, rating, quantity, details ,yourName, yourEmail } = car;
     // const userEmail = localStorage.getItem('user')
     // console.log(userEmail);
 
@@ -33,7 +33,7 @@ const UpdateCar = () => {
         const updatedProduct = {name, brandName, picture,category_id, subCategory, price, rating, yourEmail, yourName, quantity, details};
         console.log(updatedProduct);
         //send data to server from client
-        fetch(`https://brand-shop-server-ixosafvvp-ateka-sultanas-projects.vercel.app/cars/${_id}`, {
+        fetch(`https://brand-shop-server-ixosafvvp-ateka-sultanas-projects.vercel.app/cars${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -62,12 +62,16 @@ const UpdateCar = () => {
 
         })
     }
+    
 
 
     return (
         <div className="hero bg-base-200">
         <div className="hero-content py-4 w-[50%] flex-col lg:flex-row-reverse">
+
             <div className="card w-full  shadow-2xl bg-base-100">
+            <h1 className='text-3xl uppercase text-[gray] font-serif text-center font-bold bg-gradient-to-b from-lime-100 to-red-100 pt-4'>Update Product</h1>
+
                 <form onSubmit={handleUpdateCar}>
                     <div className="card-body">
                         <div className="form-control">
@@ -152,7 +156,7 @@ const UpdateCar = () => {
                         </div>
 
                         <div className="form-control mt-6">
-                           <button type='submit' className="btn btn-primary"><Link to='/allcars/${categoryCar._id}'>Update Car</Link></button>
+                           <button type='submit' className="btn btn-primary"><Link to={'/allcars/${categoryCar._id}'}>Update Car</Link></button>
                         </div>
                     </div>
                 </form>

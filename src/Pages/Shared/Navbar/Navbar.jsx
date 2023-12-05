@@ -11,8 +11,9 @@ import { useEffect } from "react";
 const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext);
-    const [theme, setTheme] = useState('light');
-
+    const [theme, setTheme] = useState(
+        localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+      );
     const handleLogout = () => {
         logOut()
             .then()
@@ -22,39 +23,33 @@ const Navbar = () => {
             });
     };
     const userLogin = user;
-    //  const userLogin = JSON.parse(localStorage.getItem('user'));
-    //  const {displayName, photoURL} = userLogin;
+    // const userLogin = JSON.parse(localStorage.getItem('user'));
+    // const {displayName, photoURL} = userLogin;
     console.log(userLogin);
+     // update state on toggle
+  const handleThemeSwitch = (e) => {
+    if (e.target.checked) {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
 
-    useEffect(() => {
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-            setTheme("light");
-        } else {
-            setTheme("dark");
-        }
-    }, []);
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    const localTheme = localStorage.getItem("theme");
+    document.querySelector("html").setAttribute("data-theme", localTheme);
+  }, [theme]);
 
-    useEffect(() => {
-        if (theme === "dark") {
-            document.documentElement.classList.add("dark");
-        } else {
-            document.documentElement.classList.remove("dark");
-        }
-    }, [theme]);
-
-    const handleThemeSwitch = () => {
-        console.log("clicked")
-        setTheme(theme === "dark" ? "light" : "dark");
-    };
-
+    
 
 
     
     return (
         <div className="">
                 <div className=''>
-                <div  className="navbar  d-flex justify-between space-x-6  text-xl rounded-lg">
-                    <div className="navbar-start  w-[90%]">
+                <div  className="navbar d-flex justify-between space-x-6  text-xl rounded-lg">
+                    <div className="navbar-start w-[90%]">
                         <div className="dropdown">
                             <label tabIndex={0} className="btn btn-ghost lg:hidden">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
@@ -63,9 +58,14 @@ const Navbar = () => {
                                 <li className='font-semibold font-serif '><Link to='/'>Home</Link></li>
                                 <li className='font-semibold font-serif'><Link to='/allcars'>ALl Products</Link></li>
                                 <li className='font-semibold font-serif '><Link to='/addcar'>Add Product</Link></li>  
-                                <div className='flex gap-2  rounded-3xl ms-4  hover:text-red-400  '>Dark
-                                <input role='switch' id='black' defaultChecked onClick={handleThemeSwitch} type="checkbox" className="toggle px-4 " />
-                            </div>
+                                <div className='flex gap-2 mt-0 p-2 rounded-3xl ms-4  hover:text-red-400'>
+                                <input 
+                         type="checkbox"
+                         className="toggle px-4" 
+                         onChange={handleThemeSwitch}
+                      checked={theme === "light" ? false : true}
+                     />
+                     </div>
                                 {user?.email ? (<>
                                     <li className='font-semibold font-serif '><Link to={`/mycar/${user.email}`}>My Cart</Link></li>
                                     <li className='font-semibold font-serif '><Link onClick={handleLogout}>Logout</Link></li>
@@ -78,7 +78,7 @@ const Navbar = () => {
 
                         </div>
                         <div className='lg:w-[70%] md:w-[89%] ms-4 flex justify-between gap-0' >
-                            <div><img className='align-center w-[60%] md:w-[50%] md:mt-1 rounded-xl border-2 border-red-200 shadow-lg' src={logo} /></div>
+                            <div><img className='align-center w-[60%] md:w-[50%] md:mt-1 rounded-xl border-2 border-red-200 shadow-lg' src={logo} alt="dark"/></div>
                             <div className='font-sans pt-2 w-[120%] md:w-full'><h4 className='car py-3 md:text-4xl text-3xl'>Auto Motive</h4>
                             </div>
                         </div>
@@ -88,9 +88,14 @@ const Navbar = () => {
                             <li className=''><Link to='/'>Home</Link></li>
                             <li className=''><Link to='/allcars'>ALL Products</Link></li>
                             <li className=''><Link to='/addcar'>Add Product</Link></li>
-                            <div className='flex gap-2  rounded-3xl ms-4  hover:text-red-400  '>Dark
-                                <input role='switch' id='black' defaultChecked onClick={handleThemeSwitch} type="checkbox" className="toggle px-4 " />
-                            </div>                            
+                            <div className='flex gap-2 mt-0 p-2 rounded-3xl ms-4  hover:text-red-400'>
+                                <input 
+                         type="checkbox"
+                         className="toggle px-4" 
+                         onChange={handleThemeSwitch}
+                      checked={theme === "light" ? false : true}
+                     />
+                     </div>
                         </ul>
                         
 
@@ -127,7 +132,7 @@ const Navbar = () => {
                     pauseOnFocusLoss
                     draggable
                     pauseOnHover
-                    // theme="light"
+                    theme="light"
                 />
                 <ToastContainer />
         </div>
