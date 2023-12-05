@@ -2,7 +2,7 @@
 
 <!-- Client Live Link : https://shopping-brand.web.app -->
 
-Server Live Link : https://brand-shop-server-ixosafvvp-ateka-sultanas-projects.vercel.app
+<!-- Server Live Link : https://brand-shop-server-ixosafvvp-ateka-sultanas-projects.vercel.app -->
 
 ## Q&A Sections
 - Add at least 5 Project features of "Shopping Brand - AUTOMOTIVE"
@@ -47,7 +47,7 @@ npm run dev
 
 # Client and Server Site CODE Link
 
-- [Client](https://github.com/programming-hero-web-course-4/b8a10-brandshop-client-side-Ateka-Oishi) 
+- [Client](https://github.com/Ateka-Oishi/brand-shop-client) 
 
 - [Server](https://github.com/programming-hero-web-course-4/b8a10-brandshop-server-side-Ateka-Oishi)
 
